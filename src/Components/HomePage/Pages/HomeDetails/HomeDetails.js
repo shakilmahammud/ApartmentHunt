@@ -10,7 +10,7 @@ const HomeDetails = () => {
   const history=useHistory()
   const { register, handleSubmit,errors } = useForm();
   const onSubmit = data => {
-    fetch('https://aqueous-shelf-28126.herokuapp.com/orderService', {
+    fetch('https://shakil-apartment.herokuapp.com/bookApartment', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -87,15 +87,9 @@ const HomeDetails = () => {
             </div>
           </div>
           <div className="apartment-form col-md-4">
-            {/* <form>
-              <input type="text" placeholder="Full Name"/>
-              <input type="number" placeholder="Phone No."/>
-              <input type="email" placeholder="Email Address"/>
-              <textarea name="massage" placeholder="massage"></textarea>
-              <button><Link to="/rent">Request Booking</Link></button> */}
               <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                        <input type="text" name="name" ref={register({ required: true })} placeholder="Your name / company’s name" value={userLogin?.name}/> <br/>
+                        <input type="text" name="name" ref={register({ required: true })} placeholder="Your name" value={userLogin?.name}/> <br/>
                         {errors.name && <span className="text-danger">This field is required</span>}
                         </div>
                       <div>
@@ -103,13 +97,13 @@ const HomeDetails = () => {
                       {errors.Email && <span className="text-danger">This field is required</span>}
                       </div>
                      <div>
-                     <input type="text" name="course" ref={register({ required: true })} placeholder="Graphic Design" /> <br/>
-                     {errors.course && <span className="text-danger">This field is required</span>}
+                     <input type="number" name="phone" ref={register({ required: true })} placeholder="phone Number" /> <br/>
+                     {errors.phone && <span className="text-danger">This field is required</span>}
                      </div>
-                    <div>  <textarea  placeholder="Project Details" name="message" ref={register} ></textarea>
+                    <div>  <textarea  placeholder="aparment Details" name="message" ref={register} ></textarea>
                     {errors.message && <span className="text-danger">This field is required</span>}
                      </div>
-              <input type="number" placeholder="Price" className="priceInput" name="price" ref={register}/>
+              
                   
                     <br/>
                <button className="btn">Request Booking</button>

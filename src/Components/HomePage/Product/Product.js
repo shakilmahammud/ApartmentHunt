@@ -34,7 +34,7 @@ const Product = () => {
     const [apartment,setApartment]=useState([])
 
     useEffect(() => {
-        fetch('http://localhost:50001/apartment')
+        fetch('https://shakil-apartment.herokuapp.com/apartment')
             .then(res => res.json())
             .then(data =>setApartment(data))
     },[])

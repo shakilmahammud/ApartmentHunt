@@ -1,13 +1,20 @@
 import { Container, Grid } from '@material-ui/core';
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { apartmentContext } from '../../../App';
 import { AdminHeader } from '../Admin/Admin';
 import { Sidebar } from '../Sidebar/Sidebar';
 import './MyRent.scss';
 
 export const MyRent = () => {
-    const [orderService,setOrderService]=useState([])
+    const [singleApartment,setSingleApartment]=useState([])
+    const [userLogin,setUserLogin] = useContext(apartmentContext);
+    useEffect(() => {
+        fetch('https://shakil-apartment.herokuapp.com/singleApartment?email='+userLogin.email)
+            .then(res => res.json())
+            .then(data =>setSingleApartment(data));
+      },[])
     return (
         <Container>
         <Grid container spacing={3}>
@@ -29,18 +36,18 @@ export const MyRent = () => {
                 </tr>
             </thead>
             <tbody>
-                {/* {
-                    orderService.map(service => */}
+                {
+                    singleApartment.map(apartment =>
                         <tr >
-                            <td> Washington Avenue</td>
-                            <td>$195</td>
+                            <td>{apartment.tile}</td>
+                            <td>$ {apartment.price}</td>
                             <td>
                                 
                                 <button className="rent-btn"> View Details</button>
                             </td>
                         </tr>
-                    
-                {/* } */}
+                    )
+                 } 
             </tbody>
         </Table>
     </div>

@@ -5,7 +5,13 @@ import { Link } from 'react-router-dom';
 
 
 export const BookList = () => {
-    const [orderService,setOrderService]=useState([])
+    const [bookApartment,setBookApartment]=useState([])
+    // console.log(orderService);
+    useEffect(() => {
+        fetch('https://shakil-apartment.herokuapp.com/userapartment')
+            .then(res => res.json())
+            .then(data =>setBookApartment(data))
+    },[])
     return (
        <section>
            <Container>
@@ -22,11 +28,11 @@ export const BookList = () => {
             </thead>
             <tbody>
                 {
-                    orderService.map(service =>
+                    bookApartment.map(service =>
                         <tr key={service._id}>
                             <td>{service.name}</td>
                             <td>{service.Email}</td>
-                            <td>{service.course}</td>
+                            <td>{service.phone}</td>
                             <td>{service.message}</td>
                             <td>
                                 <Dropdown as={ButtonGroup}>

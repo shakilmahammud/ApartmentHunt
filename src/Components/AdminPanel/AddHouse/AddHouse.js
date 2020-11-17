@@ -25,7 +25,7 @@ export const AddHouse = () => {
     formData.append('bathroom', data.bathroom);
     
 
-    fetch('http://localhost:50001/addApartment',{
+    fetch('https://shakil-apartment.herokuapp.com/addApartment',{
         method:'POST',
         body:formData
     })
