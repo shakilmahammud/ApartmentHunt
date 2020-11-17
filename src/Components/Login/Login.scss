@@ -1,0 +1,19 @@
+@import '../AdminPanel/Sidebar/Sidebar.scss';
+
+.row{
+    margin:0 auto;
+    .items{
+        width:450px;
+        height:400px;
+        padding: 30px;
+        input{
+            width:100%;
+        }
+        .submit-btn{
+            background-color:$hover-color;
+            color: $secondary-color;
+            padding:5px;
+        }
+    }
+}
+

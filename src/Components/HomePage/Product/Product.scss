@@ -1,0 +1,24 @@
+@import '../../AdminPanel/Sidebar/Sidebar.scss';
+
+.card-body{
+    .svg-inline--fa{
+        margin-right:10px; 
+        color:$primary-color;
+    }
+    .card-text{
+        color:$hover-color;
+        
+    }
+    div{
+    h6{
+        font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.0015em;
+    color: #747474;
+    }
+}
+}
+
